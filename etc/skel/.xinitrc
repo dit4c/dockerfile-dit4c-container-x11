@@ -1,2 +1,1 @@
-urxvt &
 openbox

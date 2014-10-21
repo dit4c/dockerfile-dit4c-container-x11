@@ -9,10 +9,11 @@ RUN yum swap -y -- remove fakesystemd -- install systemd systemd-libs
 # - MESA DRI drivers for software GLX rendering
 # - X11 dummy & void drivers
 # - X11 xinit binary
+# - reasonable fonts for UI
 # - x11vnc
 # - python-websockify
 # - openbox
-# - urxvt
+# - xfce4-terminal
 RUN yum install -y \
   mesa-dri-drivers \
   xorg-x11-drv-dummy \
@@ -24,7 +25,7 @@ RUN yum install -y \
   x11vnc \
   python-websockify \
   openbox \
-  rxvt-unicode
+  xfce4-terminal
 
 # Get the last good build of noVNC
 RUN git clone https://github.com/kanaka/noVNC.git /opt/noVNC && \
