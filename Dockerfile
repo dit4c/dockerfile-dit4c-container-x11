@@ -1,9 +1,6 @@
 # DOCKER-VERSION 1.0
-FROM dit4c/dit4c-container-base
+FROM dit4c/dit4c-container-base:latest
 MAINTAINER t.dettrick@uq.edu.au
-
-# Install real systemd so we can install Xorg server binary
-RUN yum swap -y -- remove fakesystemd -- install systemd systemd-libs
 
 # Install
 # - MESA DRI drivers for software GLX rendering
@@ -13,8 +10,9 @@ RUN yum swap -y -- remove fakesystemd -- install systemd systemd-libs
 # - x11vnc
 # - python-websockify
 # - openbox
-# - xfce4-terminal
-RUN yum install -y \
+# - tint2
+# - xterm
+RUN rpm --rebuilddb && fsudo yum install -y \
   mesa-dri-drivers \
   xorg-x11-drv-dummy \
   xorg-x11-drv-void \
@@ -25,7 +23,8 @@ RUN yum install -y \
   x11vnc \
   python-websockify \
   openbox \
-  xfce4-terminal
+  tint2 \
+  xterm
 
 # Get the last good build of noVNC
 RUN git clone https://github.com/kanaka/noVNC.git /opt/noVNC && \
@@ -35,8 +34,11 @@ RUN git clone https://github.com/kanaka/noVNC.git /opt/noVNC && \
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
 COPY var /var
-# Chowned to root, so reverse that change
-RUN chown -R researcher /var/log/{easydav,supervisor}
+
+# Because COPY doesn't respect USER...
+USER root
+RUN chown -R researcher:researcher /etc /var
+USER researcher
 
 # Check nginx config is OK
 RUN nginx -t
