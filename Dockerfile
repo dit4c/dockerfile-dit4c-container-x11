@@ -1,5 +1,5 @@
 # DOCKER-VERSION 1.0
-FROM dit4c/dit4c-container-base:fakeroot
+FROM dit4c/dit4c-container-base:latest
 MAINTAINER t.dettrick@uq.edu.au
 
 # Install
@@ -10,7 +10,8 @@ MAINTAINER t.dettrick@uq.edu.au
 # - x11vnc
 # - python-websockify
 # - openbox
-# - xfce4-terminal
+# - tint2
+# - xterm
 RUN rpm --rebuilddb && fsudo yum install -y \
   mesa-dri-drivers \
   xorg-x11-drv-dummy \
@@ -22,6 +23,7 @@ RUN rpm --rebuilddb && fsudo yum install -y \
   x11vnc \
   python-websockify \
   openbox \
+  tint2 \
   xterm
 
 # Get the last good build of noVNC
