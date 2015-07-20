@@ -28,6 +28,7 @@ background_color = #E0EBE7 100
 border_color = #F15A7D 80
 
 # Panel
+panel_items = LTS
 panel_monitor = all
 panel_position = bottom center horizontal
 panel_size = 100% 30
@@ -100,15 +101,12 @@ mouse_right = close
 mouse_scroll_up = toggle
 mouse_scroll_down = iconify
 
-# Battery
-battery = 0
-battery_low_status = 20
-battery_low_cmd = notify-send "battery low"
-battery_hide = 95
-bat1_font = Sans 9
-bat2_font = Sans 8
-battery_font_color = #000000 100
-battery_padding = 1 1
-battery_background_id = 0
+# Launcher
+launcher_icon_theme = LinuxLex-8
+launcher_padding = 5 0 10
+launcher_background_id = 9
+launcher_icon_size = 85
+launcher_item_app = /usr/share/applications/xterm.desktop
+launcher_item_app = /usr/share/applications/lxrandr.desktop
 
 # End of config
