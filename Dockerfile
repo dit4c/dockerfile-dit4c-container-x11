@@ -29,7 +29,7 @@ RUN rpm --rebuilddb && fsudo yum install -y \
 # Get the last good build of noVNC
 RUN git clone https://github.com/kanaka/noVNC.git /opt/noVNC && \
     cd /opt/noVNC && \
-    git checkout fb64ed213584423475a262631b6be2e2a157c628
+    git checkout 8f3c0f6b9b5e5c23a7dc7e90bd22901017ab4fc7
 
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
