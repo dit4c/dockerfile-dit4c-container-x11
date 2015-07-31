@@ -11,18 +11,20 @@ MAINTAINER t.dettrick@uq.edu.au
 # - python-websockify
 # - openbox
 # - xterm
-RUN rpm --rebuilddb && fsudo yum install -y \
-  mesa-dri-drivers \
-  xorg-x11-drv-dummy \
-  xorg-x11-drv-void \
-  xorg-x11-xinit \
-  dejavu-sans-fonts \
-  dejavu-sans-mono-fonts \
-  dejavu-serif-fonts \
-  x11vnc \
-  python-websockify \
-  openbox \
-  xterm
+RUN rpm --rebuilddb && \
+  fsudo yum install -y \
+    mesa-dri-drivers \
+    xorg-x11-drv-dummy \
+    xorg-x11-drv-void \
+    xorg-x11-xinit \
+    dejavu-sans-fonts \
+    dejavu-sans-mono-fonts \
+    dejavu-serif-fonts \
+    x11vnc \
+    python-websockify \
+    openbox \
+    xterm && \
+  rm -f /usr/share/applications/x11vnc.desktop
 
 # Get the last good build of noVNC
 RUN git clone https://github.com/kanaka/noVNC.git /opt/noVNC && \

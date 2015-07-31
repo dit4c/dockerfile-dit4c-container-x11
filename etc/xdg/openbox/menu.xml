@@ -2,11 +2,11 @@
 
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
-<menu id="terminals-menu" label="Terminals" execute="/usr/libexec/openbox-xdg-menu /etc/xdg/openbox/terminals"/>
+<menu id="applications-menu" label="Applications" execute="/usr/libexec/openbox-xdg-menu /etc/xdg/menus/applications"/>
 
 <menu id="root-menu" label="Openbox 3">
   <separator label="Openbox"/>
-  <menu id="terminals-menu"/>
+  <menu id="applications-menu"/>
   <separator/>
   <item label="Reconfigure">
     <action name="Reconfigure" />
