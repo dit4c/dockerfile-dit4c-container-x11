@@ -1,5 +1,5 @@
 # DOCKER-VERSION 1.0
-FROM dit4c/dit4c-container-base:latest
+FROM dit4c/dit4c-container-base:withroot
 MAINTAINER t.dettrick@uq.edu.au
 
 # Install
@@ -13,7 +13,7 @@ MAINTAINER t.dettrick@uq.edu.au
 # - tint2
 # - xterm
 RUN rpm --rebuilddb && \
-  fsudo yum install -y \
+    yum install -y \
     mesa-dri-drivers \
     xorg-x11-drv-dummy \
     xorg-x11-drv-void \
@@ -36,18 +36,15 @@ RUN git clone https://github.com/kanaka/noVNC.git /opt/noVNC && \
 # Install latest lxrandr from RPM and icons from Yum
 # (Rebuild icon cache to be slower but much smaller)
 RUN rpm --rebuilddb && \
-  fsudo yum localinstall -y https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/x86_64/os/Packages/l/lxrandr-0.3.0-1.fc23.x86_64.rpm && \
-  fsudo yum install -y gnome-icon-theme && \
-  fsudo gtk-update-icon-cache --force --index-only /usr/share/icons/gnome
+  yum localinstall -y https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/x86_64/os/Packages/l/lxrandr-0.3.0-1.fc23.x86_64.rpm && \
+  yum install -y gnome-icon-theme && \
+  gtk-update-icon-cache --force --index-only /usr/share/icons/gnome
 
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
 COPY var /var
 
-# Because COPY doesn't respect USER...
-USER root
-RUN chown -R researcher:researcher /etc /var
-USER researcher
-
 # Check nginx config is OK
 RUN nginx -t
+
+RUN chown -R researcher:researcher /etc /var
