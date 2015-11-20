@@ -48,4 +48,3 @@ COPY var /var
 RUN nginx -t
 
 RUN chown -R researcher:researcher /etc /var
-
