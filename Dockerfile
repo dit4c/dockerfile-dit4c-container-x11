@@ -2,6 +2,8 @@
 FROM dit4c/dit4c-container-base:withroot
 MAINTAINER t.dettrick@uq.edu.au
 
+ENV DOCKER_FIX=''
+
 # Install
 # - MESA DRI drivers for software GLX rendering
 # - X11 dummy & void drivers
@@ -46,6 +48,3 @@ COPY var /var
 
 # Check nginx config is OK
 RUN nginx -t
-
-RUN chown -R researcher:researcher /etc /var
-
