@@ -30,7 +30,7 @@ border_color = #F15A7D 80
 # Panel
 panel_items = LTS
 panel_monitor = all
-panel_position = bottom center horizontal
+panel_position = top center horizontal
 panel_size = 100% 30
 panel_margin = 0 0
 panel_padding = 7 3 4
@@ -106,6 +106,7 @@ launcher_icon_theme = LinuxLex-8
 launcher_padding = 5 0 10
 launcher_background_id = 9
 launcher_icon_size = 85
+launcher_tooltip = 1
 launcher_item_app = /usr/share/applications/xterm.desktop
 launcher_item_app = /usr/share/applications/lxrandr.desktop
 

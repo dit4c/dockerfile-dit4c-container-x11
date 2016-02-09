@@ -42,8 +42,11 @@ RUN rpm --rebuilddb && \
   yum install -y gnome-icon-theme && \
   gtk-update-icon-cache --force --index-only /usr/share/icons/gnome
 
+RUN yum localinstall -y https://copr-be.cloud.fedoraproject.org/results/maxamillion/epel7-i3wm/epel-7-x86_64/nitrogen-1.5.2-13.fc20/nitrogen-1.5.2-13.el7.centos.x86_64.rpm
+
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
+COPY usr /usr
 COPY var /var
 
 # Check nginx config is OK
