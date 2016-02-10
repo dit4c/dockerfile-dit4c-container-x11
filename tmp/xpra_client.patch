@@ -1,0 +1,10 @@
+--- a/usr/share/xpra/www/include/xpra_client.js 2016-01-24 22:57:19.000000000 +0000
++++ b/usr/share/xpra/www/include/xpra_client.js 2016-02-10 00:48:42.705235667 +0000
+@@ -192,6 +192,7 @@
+        uri += this.host;
+        uri += ":" + this.port;
+        // do open
++				uri = window.location.href.replace('http','ws')
+        this.protocol.open(uri);
+        // wait timeout seconds for a hello, then bomb
+        var me = this;
