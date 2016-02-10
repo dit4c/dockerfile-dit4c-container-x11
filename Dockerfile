@@ -38,7 +38,7 @@ RUN git clone https://github.com/kanaka/noVNC.git /opt/noVNC && \
 # Install latest lxrandr from RPM and icons from Yum
 # (Rebuild icon cache to be slower but much smaller)
 RUN rpm --rebuilddb && \
-  yum localinstall -y https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/x86_64/os/Packages/l/lxrandr-0.3.0-1.fc23.x86_64.rpm && \
+  yum localinstall -y https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/x86_64/os/Packages/l/lxrandr-0.3.0-2.fc24.x86_64.rpm && \
   yum install -y gnome-icon-theme && \
   gtk-update-icon-cache --force --index-only /usr/share/icons/gnome
 
