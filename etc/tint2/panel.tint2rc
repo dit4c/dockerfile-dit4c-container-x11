@@ -6,26 +6,26 @@
 # ID 1
 rounded = 0
 border_width = 1
-background_color = #EAEAEA 100
-border_color = #BBBBBB 100
+background_color = #444444 100
+border_color = #555555 100
 
 # ID 2
 rounded = 2
 border_width = 1
-background_color = #E0EBE7 100
+background_color = #FEFEFE 100
 border_color = #BBBBBB 100
 
 # ID 3
 rounded = 2
 border_width = 1
-background_color = #FCFAFB 100
+background_color = #FEFEFE 100
 border_color = #BBBBBB 100
 
 # ID 4
 rounded = 2
 border_width = 2
-background_color = #E0EBE7 100
-border_color = #F15A7D 80
+background_color = #FEFEFE 100
+border_color = #BBBBBB 80
 
 # Panel
 panel_items = LTS
@@ -93,7 +93,7 @@ tooltip_show_timeout = 1.2
 tooltip_hide_timeout = 0.3
 tooltip_background_id = 1
 tooltip_font = Sans 9
-tooltip_font_color = #5E5E5E 100
+tooltip_font_color = #efefef 100
 
 # Mouse
 mouse_middle = none

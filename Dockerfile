@@ -33,7 +33,10 @@ COPY etc /etc
 COPY var /var
 COPY tmp /tmp
 
-RUN cd / && patch -p1 -l < /tmp/xpra_client.patch
+RUN cd / && \
+  patch -p1 -l < /tmp/xpra_client.patch && \
+  cp /usr/share/xpra/www/index.html /usr/share/xpra/www/index.html.bak && \
+  patch -p1 -l < /tmp/xpra_html_index.patch
 
 # Check nginx config is OK
 RUN nginx -t
