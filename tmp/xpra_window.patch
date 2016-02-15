@@ -1,0 +1,11 @@
+--- a/usr/share/xpra/www/include/xpra_window.js     2016-02-15 08:39:30.815230177 +0000
++++ b/usr/share/xpra/www/include/xpra_window.js     2016-02-15 08:39:54.783479395 +0000
+@@ -100,7 +100,7 @@
+        jQuery(this.div).addClass("window");
+        jQuery(this.div).addClass("window-" + this.windowtype);
+        // add a title bar to this window if we need to
+-       if((this.windowtype == "NORMAL") || (this.windowtype == "DIALOG") || (this.windowtype == "UTILITY")) {
++       if((this.windowtype == "NORMAL") || (this.windowtype == "DIALOG")) {
+                if(!this.override_redirect) {
+                        // create header
+                        jQuery(this.div).prepend('<div id="head' + String(wid) + '" class="windowhead"> <span class="windowtitle" id="title' + String(wid) + '">' + this.title + '</span> <span class="windowbuttons"> <span id="maximize' + String(wid) + '"><img src="include/maximize.png" /></span> <span id="close' + String(wid) + '"><img src="include/close.png" /></span> </span></div>');
