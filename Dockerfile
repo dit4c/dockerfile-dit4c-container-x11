@@ -1,8 +1,6 @@
 # DOCKER-VERSION 1.0
-FROM dit4c/dit4c-container-base
+FROM dit4c/dit4c-container-base:debian
 MAINTAINER t.dettrick@uq.edu.au
-
-ENV DOCKER_FIX=''
 
 # Install
 # - MESA DRI drivers for software GLX rendering
@@ -13,20 +11,21 @@ ENV DOCKER_FIX=''
 # - python-websockify
 # - tint2
 # - xterm
-RUN curl -s https://winswitch.org/downloads/CentOS/winswitch.repo > /etc/yum.repos.d/winswitch.repo && \
-    yum install -y \
-    mesa-dri-drivers \
-    xorg-x11-drv-dummy \
-    xorg-x11-drv-void \
-    xorg-x11-xinit \
-    dejavu-sans-fonts \
-    dejavu-sans-mono-fonts \
-    dejavu-serif-fonts \
-    xpra \
+RUN echo "deb http://xpra.org/ jessie main" >> /etc/apt/sources.list && \
+  curl -Ls http://winswitch.org/gpg.asc | apt-key add - && \
+  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    libgl1-mesa-dri \
+    xserver-xorg-video-dummy \
+    xserver-xorg-input-void \
+    x11-xserver-utils \
+    xinit \
+    fonts-dejavu \
     dbus-x11 \
-    python-websockify \
+    xpra \
+    websockify \
     tint2 \
-    xterm
+    xterm && \
+  apt-get clean
 
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
