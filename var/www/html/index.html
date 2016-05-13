@@ -86,6 +86,22 @@ $(function() {
       X11 Session
     </span>
   </a>
+  <a id="novnc-notouch" style="display: none" class="list-group-item" href="/x11/vnc.html?autoconnect=true&path=x11/websockify&touch=false" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-list-alt fa-stack-1x fa-inverse"></i>
+    </span>
+    <span class="list-label">
+      X11 w/o touch support
+    </span>
+  </a>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    if ('ontouchstart' in document.documentElement) {
+      $('#novnc-notouch').css('display','auto');
+    }
+  });
+  </script>
   <a class="list-group-item" href="/tty/" target="_blank">
     <span class="fa-stack fa-lg">
       <i class="fa fa-square fa-stack-2x"></i>
