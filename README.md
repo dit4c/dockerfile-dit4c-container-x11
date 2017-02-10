@@ -1,6 +1,6 @@
 # dit4c/dit4c-container-x11
 
-[![](https://images.microbadger.com/badges/version/dit4c/dit4c-container-x11.svg)](https://microbadger.com/images/dit4c/dit4c-container-x11)
+[![](https://images.microbadger.com/badges/image/dit4c/dit4c-container-x11:debian.svg)](https://microbadger.com/images/dit4c/dit4c-container-x11:debian)
 
 DIT4C container which provides X11 support via HTML5 VNC.
 
