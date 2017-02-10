@@ -26,11 +26,12 @@ Generate & patch the ACI to allow the single call required, or disable seccomp e
 
 ```
 docker2aci docker://dit4c/dit4c-container-x11
-sudo acbuild begin dit4c-dit4c-container-x11-latest.aci
+export ACBUILD=`which acbuild`
+sudo $ACBUILD begin ./dit4c-dit4c-container-fsl-latest.aci
 echo '{ "set": ["@rkt/default-whitelist", "name_to_handle_at"] }' | \
-  sudo /usr/local/bin/acbuild isolator add "os/linux/seccomp-retain-set" -
-sudo acbuild write dit4c-dit4c-container-x11-latest-with-seccomp.aci
-sudo acbuild end
+  sudo $ACBUILD isolator add "os/linux/seccomp-retain-set" -
+sudo $ACBUILD write dit4c-dit4c-container-fsl-latest-with-seccomp.aci
+sudo $ACBUILD end
 ```
 
 Then run the image normally:
